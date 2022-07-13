@@ -1,32 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Player : MonoBehaviour
-{   
-    public LayerMask whatCanbeClickedOn;
-    private NavMeshAgent agent;
-    
-    // Start is called before the first frame update
+{
+    NavMeshAgent agent;
+    Animator anim;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        
+        anim = GetComponent<Animator>();
+        anim.enabled = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            Ray myRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hitInfo;
+            RaycastHit hit;
 
-            if (Physics.Raycast(myRay, out hitInfo, 100, whatCanbeClickedOn))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
-                agent.SetDestination(hitInfo.point);
+                agent.destination = hit.point;
             }
+        }
+
+        if (transform.position != agent.destination)
+        {
+            anim.enabled = true;
+        }
+        else
+        {
+            anim.enabled = false;
         }
     }
 }
