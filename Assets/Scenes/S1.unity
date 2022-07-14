@@ -385,7 +385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114253073084258262, guid: 8e0f285c21cdcf14e8d5c06c57ba936b, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e0f285c21cdcf14e8d5c06c57ba936b, type: 3}
@@ -612,6 +612,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ded5454e2cf1a49b3ad44429bae060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whatCanbeClickedOn:
-    serializedVersion: 2
-    m_Bits: 256

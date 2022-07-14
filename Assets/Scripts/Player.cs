@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            anim.enabled = false;
+            anim.Play("idle");
         }
     }
 }
